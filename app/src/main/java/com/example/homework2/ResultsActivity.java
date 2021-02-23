@@ -47,7 +47,6 @@ public class ResultsActivity extends AppCompatActivity {
     }
 
     public void generateParams(){
-        Log.d("help", api_url);
         api_url="https://api.punkapi.com/v2/beers?per_page=80";
         if(!paramsArray[0].equals("")) api_url=api_url+insertAnd()+"beer_name="+paramsArray[0];
         if(!paramsArray[1].equals("")) api_url=api_url+insertAnd()+"brewed_after="+paramsArray[1].substring(0,2)+"-"+paramsArray[1].substring(3);

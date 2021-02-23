@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -44,14 +45,24 @@ public class SearchActivity extends AppCompatActivity {
 
     public void helpWords(){
         //name="";
-        dateStart ="";
-        dateEnd="";
-        hpb="false";
+        //dateStart ="";
+        //dateEnd="";
+        //hpb="false";
     }
 
     public void validateParams(View view) {
-        EditText beerName = findViewById(R.id.beerName);
-        name=beerName.getText().toString().trim().replace(' ','_');
+        EditText helper = findViewById(R.id.beerName);
+        name=helper.getText().toString().trim().replace(' ','_');
+
+        helper = findViewById(R.id.endDate);
+        dateEnd=helper.getText().toString().trim();
+
+        helper = findViewById(R.id.startDate);
+        dateStart=helper.getText().toString().trim();
+
+        Switch helper2 = findViewById(R.id.hpb);
+        hpb=String.valueOf(helper2.isChecked());
+
 
         Boolean[] good = {false, false};
         float[] timeArray={01,0001,12,9999};

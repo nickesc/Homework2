@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:focusable="false"
         android:text="@string/go"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,11 +36,12 @@
         android:layout_marginStart="32dp"
         android:ems="10"
         android:hint="@string/dateHint"
+        android:imeOptions="actionNext"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@id/hpb"
         app:layout_constraintEnd_toStartOf="@+id/to"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/beerName" />
+        app:layout_constraintTop_toBottomOf="@id/dateLabel" />
 
     <EditText
         android:id="@+id/endDate"
@@ -48,11 +50,12 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="@string/dateHint"
+        android:imeOptions="actionDone"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/hpb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/to"
-        app:layout_constraintTop_toBottomOf="@+id/beerName" />
+        app:layout_constraintTop_toBottomOf="@id/dateLabel" />
 
     <TextView
         android:id="@+id/searchTitle"
@@ -69,6 +72,8 @@
         android:id="@+id/hpb"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
+        android:layout_marginBottom="200dp"
+        android:focusable="false"
         android:text="@string/hpbLabel"
         app:layout_constraintBottom_toTopOf="@+id/goButton"
         app:layout_constraintEnd_toEndOf="parent"
