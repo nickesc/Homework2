@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Beer Buddy</string>
+    <string name="searchLabel">Search beers</string>
+    <string name="start">Start</string>
+    <string name="go">Find Beers</string>
+    <string name="placeholder">PLACEHOLDER TEXT</string>
+    <string name="results">Results</string>
+    <string name="nameHint">Beer Name</string>
+    <string name="dateHint">MM / YYYY</string>
+    <string name="hpbLabel">HPB</string>
+    <string name="searchText">Search for beer:</string>
+    <string name="dateLabel">Search by date range</string>
+</resources>
