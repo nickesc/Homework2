@@ -3,7 +3,7 @@
     <string name="searchLabel">Search beers</string>
     <string name="start">Start</string>
     <string name="go">Find Beers</string>
-    <string name="placeholder">PLACEHOLDER TEXT</string>
+    <string name="placeholder"> </string>
     <string name="results">Results</string>
     <string name="nameHint">Beer Name</string>
     <string name="dateHint">MM / YYYY</string>

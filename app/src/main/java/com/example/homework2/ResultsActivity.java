@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.Random;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -26,6 +28,8 @@ public class ResultsActivity extends AppCompatActivity {
 
     private static String api_url;
     private static AsyncHttpClient client = new AsyncHttpClient();
+
+    private TextView resultNumber;
 
 
     @Override
@@ -87,6 +91,8 @@ public class ResultsActivity extends AppCompatActivity {
                     else{
                         String response = list.toString();
                         Log.d("help", ""+list.length());
+                        resultNumber=findViewById(R.id.resultNumber);
+                        resultNumber.setText("Found "+list.length()+" results:");
                         //launchNextActivity(view, response);
                     }
 
@@ -99,6 +105,14 @@ public class ResultsActivity extends AppCompatActivity {
                 Log.e("api error", new String((responseBody)));
             }
         });
+    }
+    public void launchNextActivity(View view) throws JSONException {
+        Random rand = new Random();
+        String extra = list.get(rand.nextInt(list.length())).toString();
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("beer",extra);
+
+        startActivity(intent);
     }
 
 }

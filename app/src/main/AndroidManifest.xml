@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Homework2">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,18 +20,22 @@
         </activity>
 
         <activity android:name=".SearchActivity"
-            android:parentActivityName=".MainActivity"
             android:label="@string/searchLabel"
             >
 
         </activity>
+
         <activity android:name=".ResultsActivity"
-            android:parentActivityName=".SearchActivity"
             android:label="@string/results"
             >
 
         </activity>
-        
+
+        <activity android:name=".DetailActivity"
+            android:label="@string/results"
+            >
+        </activity>
+
     </application>
 
 </manifest>
