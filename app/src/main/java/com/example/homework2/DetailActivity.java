@@ -16,14 +16,7 @@ import java.util.Arrays;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private JSONObject beer;
-    private String name;
-    private String abv;
-    private String firstBrewed;
-    private String imageURL;
-    private String desc;
-    private JSONArray pairings;
-    private String tips;
+    private Beer beer;
 
     private TextView nameTV;
     private TextView abvTV;
@@ -33,19 +26,22 @@ public class DetailActivity extends AppCompatActivity {
     private TextView pairingsTV;
     private TextView tipsTV;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
         try {
-            setBeer();
+            beer=new Beer(new JSONObject(getIntent().getStringExtra("beer")));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-    }
+        Log.d("help", beer.getName() + Arrays.toString(beer.getPairings()));
 
+    }
+/*
     public void setBeer() throws JSONException {
         Intent intent = getIntent();
         try {
@@ -54,9 +50,9 @@ public class DetailActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        nameTV=findViewById(R.id.nameTV);
-        nameTV.setText(beer.getString("name"));
 
+
+        name=beer.getString("name");
         abv=""+beer.getDouble("abv");
         firstBrewed=beer.getString("first_brewed");
         imageURL=beer.getString("image_url");
@@ -65,9 +61,16 @@ public class DetailActivity extends AppCompatActivity {
         tips=beer.getString("name");
 
 
+        nameTV=findViewById(R.id.nameTV);
+        nameTV.setText(name);
+
+
         //Log.d("help",beer.toString(1));
 
-        //Log.d("help", "\n"+name+"\n"+abv+"\n"+firstBrewed+"\n"+imageURL+"\n"+desc+"\n"+tips+"\n"+pairings.toString(1));
+        Log.d("help", "\n"+name+"\n"+abv+"\n"+firstBrewed+"\n"+imageURL+"\n"+desc+"\n"+tips+"\n"+pairings.toString(1));
 
     }
+
+ */
+
 }

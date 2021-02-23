@@ -32,6 +32,7 @@ public class ResultsActivity extends AppCompatActivity {
     private TextView resultNumber;
 
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
