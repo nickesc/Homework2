@@ -31,6 +31,7 @@
             android:ems="10"
             android:fontFamily="@font/courier_prime_italic"
             android:hint="@string/nameHint"
+            android:imeOptions="actionDone"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
