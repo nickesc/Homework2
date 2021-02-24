@@ -13,7 +13,7 @@
         android:layout_margin="20dp"
         android:fontFamily="@font/courier_prime_bold"
         android:onClick="launchNextActivity"
-        android:text="@string/placeholder"
+        android:text="@string/placeholder2"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewBeer"
         app:layout_constraintEnd_toEndOf="parent"

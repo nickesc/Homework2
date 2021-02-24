@@ -18,8 +18,13 @@
                 android:id="@+id/nameTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/courier_prime_bold_italic"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:text="@string/placeholder"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toTopOf="@id/image1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +34,7 @@
                 android:id="@+id/image1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toTopOf="@id/abvTV"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +45,10 @@
                 android:id="@+id/abvTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
                 android:fontFamily="@font/courier_prime_italic"
                 android:text="@string/placeholder"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toTopOf="@id/firstBrewedTV"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/courier_prime_regular"
                 android:text="@string/placeholder"
-                app:layout_constraintBottom_toTopOf="@id/descTV"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toTopOf="@id/textView10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/abvTV" />
@@ -61,35 +70,73 @@
                 android:id="@+id/descTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/courier_prime_regular"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:text="@string/placeholder"
-                android:textSize="36sp"
-                app:layout_constraintBottom_toTopOf="@id/tipsTV"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/textView11"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/firstBrewedTV" />
+                app:layout_constraintTop_toBottomOf="@id/textView10" />
 
             <TextView
                 android:id="@+id/tipsTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
                 android:fontFamily="@font/courier_prime_regular"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:text="@string/placeholder"
                 app:layout_constraintBottom_toTopOf="@+id/pairTV"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/descTV" />
+                app:layout_constraintTop_toBottomOf="@id/textView11" />
 
             <TextView
                 android:id="@+id/pairTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/courier_prime_regular"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:text="@string/placeholder"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tipsTV" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/courier_prime_bold"
+                android:text="Description:"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/descTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/firstBrewedTV" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/courier_prime_bold"
+                android:text="Tips and Pairings:"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/tipsTV"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descTV" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

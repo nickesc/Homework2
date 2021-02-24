@@ -54,9 +54,9 @@ public class DetailActivity extends AppCompatActivity {
         image=findViewById(R.id.image1);
         Picasso.get().load(beer.getImageURL()).into(image);
         abvTV = findViewById(R.id.abvTV);
-        abvTV.setText(beer.getAbv());
+        abvTV.setText("AVB: "+beer.getAbv());
         firstBrewedTV = findViewById(R.id.firstBrewedTV);
-        firstBrewedTV.setText(beer.getFirstBrewed());
+        firstBrewedTV.setText("First Brewed: "+beer.getFirstBrewed());
         descTV = findViewById(R.id.descTV);
         descTV.setText(beer.getDesc());
         tipsTV = findViewById(R.id.tipsTV);
