@@ -58,9 +58,12 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.ViewHolder> {
         holder.descRV.setText(beer.getDesc());
         Picasso.get().load(beer.getImageURL()).into(holder.imageIV);
 
+        String path;
+        if (beer.getFav()) path="images/unfavorite.png";
+        else path="images/favorite.png";
 
         try {
-            InputStream ims = context.getAssets().open("images/favorite.png");
+            InputStream ims = context.getAssets().open(path);
             Bitmap bitmap = BitmapFactory.decodeStream(ims);
             holder.favoriteIV.setImageBitmap(bitmap);
         }
@@ -78,21 +81,9 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.ViewHolder> {
                 }
             }
         });
-        holder.favoriteIV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String path;
-                if (beer.getFav()) path="images/unfavorite.png";
-                else path="images/favorite.png";
-                try {
-                    InputStream ims = context.getAssets().open(path);
-                    Bitmap bitmap = BitmapFactory.decodeStream(ims);
-                    holder.favoriteIV.setImageBitmap(bitmap);
-                }
-                catch(IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        holder.favoriteIV.setOnClickListener(v -> {
+            beer.setFav(!beer.getFav());
+            this.notifyItemChanged(position);
         });
 
 

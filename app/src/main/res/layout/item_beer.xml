@@ -72,6 +72,8 @@
             android:id="@+id/favoriteIV"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toTopOf="@id/imageIV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

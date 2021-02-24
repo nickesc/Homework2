@@ -28,6 +28,8 @@ public class Beer{
             pairings[i]=temp.getString(i);
         }
 
+        this.fav=false;
+
     }
 
     public JSONObject toJSON() throws JSONException {
