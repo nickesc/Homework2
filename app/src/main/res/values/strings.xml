@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Beer Buddy</string>
-    <string name="searchLabel">Search beers</string>
+    <string name="searchLabel">Search beer</string>
     <string name="start">Start</string>
-    <string name="go">Find Beers</string>
+    <string name="go">Find Beer</string>
     <string name="placeholder"> </string>
     <string name="results">Results</string>
     <string name="nameHint">Beer Name</string>

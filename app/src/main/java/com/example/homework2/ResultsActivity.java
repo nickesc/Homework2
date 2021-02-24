@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -16,6 +19,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -23,7 +29,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class ResultsActivity extends AppCompatActivity {
 
-    private JSONArray list=new JSONArray();
+    private ArrayList<Beer> list;
+    private RecyclerView recyclerView;
     private String[] paramsArray;
 
     private static String api_url;
@@ -40,6 +47,9 @@ public class ResultsActivity extends AppCompatActivity {
 
         //Log.d("api-help", "here");
 
+        recyclerView = findViewById(R.id.recyclerViewBeer);
+        list=new ArrayList<>();
+
         Intent intent = getIntent();
         paramsArray = intent.getStringArrayExtra("params");
         Log.d("help", ""+ Arrays.toString(paramsArray));
@@ -49,6 +59,22 @@ public class ResultsActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private String loadJSONFromAsset(String filename) {
+        String json = null;
+        try {
+            InputStream is = this.getAssets().open(filename);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     public void generateParams(){
@@ -84,16 +110,19 @@ public class ResultsActivity extends AppCompatActivity {
                     JSONArray json = new JSONArray(new String(responseBody));
                     if(json.length()!=0){
                         for (int i=0; i<json.length(); i++){
-                            list.put(json.get(i));
+                            list.add(new Beer(json.getJSONObject(i)));
                         }
                         Log.d("help", json.toString());
                         generateBeerList(finalPage);
                     }
                     else{
                         String response = list.toString();
-                        Log.d("help", ""+list.length());
+                        Log.d("help", ""+list.size());
                         resultNumber=findViewById(R.id.resultNumber);
-                        resultNumber.setText("Found "+list.length()+" results:");
+                        resultNumber.setText("Found "+list.size()+" results:");
+                        setAdapter();
+
+
                         //launchNextActivity(view, response);
                     }
 
@@ -109,11 +138,16 @@ public class ResultsActivity extends AppCompatActivity {
     }
     public void launchNextActivity(View view) throws JSONException {
         Random rand = new Random();
-        String extra = list.get(rand.nextInt(list.length())).toString();
+        String extra = list.get(rand.nextInt(list.size())).toString();
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("beer",extra);
 
         startActivity(intent);
+    }
+    public void setAdapter(){
+        BeerAdapter adapter = new BeerAdapter(list);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 }
