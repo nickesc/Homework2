@@ -50,7 +50,7 @@ public class BeerAdapter extends RecyclerView.Adapter<BeerAdapter.ViewHolder> {
         holder.imageIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("help", beer.toString());
+                Log.d("help", beer.getName());
             }
         });
 

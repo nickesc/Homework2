@@ -41,36 +41,5 @@ public class DetailActivity extends AppCompatActivity {
         Log.d("help", beer.getName() + Arrays.toString(beer.getPairings()));
 
     }
-/*
-    public void setBeer() throws JSONException {
-        Intent intent = getIntent();
-        try {
-            beer = new JSONObject(intent.getStringExtra("beer"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-
-        name=beer.getString("name");
-        abv=""+beer.getDouble("abv");
-        firstBrewed=beer.getString("first_brewed");
-        imageURL=beer.getString("image_url");
-        desc=beer.getString("description");
-        pairings=beer.getJSONArray("food_pairing");
-        tips=beer.getString("name");
-
-
-        nameTV=findViewById(R.id.nameTV);
-        nameTV.setText(name);
-
-
-        //Log.d("help",beer.toString(1));
-
-        Log.d("help", "\n"+name+"\n"+abv+"\n"+firstBrewed+"\n"+imageURL+"\n"+desc+"\n"+tips+"\n"+pairings.toString(1));
-
-    }
-
- */
 
 }

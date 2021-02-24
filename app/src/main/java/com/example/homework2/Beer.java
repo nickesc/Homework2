@@ -1,7 +1,5 @@
 package com.example.homework2;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,8 +10,8 @@ public class Beer{
     private String firstBrewed;
     private String imageURL;
     private String desc;
-    private String tips;
     private String[] pairings;
+    private String tips;
 
     public Beer(JSONObject beerInfo) throws JSONException {
         this.name=beerInfo.getString("name");
@@ -31,15 +29,23 @@ public class Beer{
 
     }
 
-    public String toString(){
-        Log.d("help","got here");
-
-        String string=this.name+"~"+this.abv+"~"+this.firstBrewed+"~"+this.imageURL+"~"+this.desc+"~"+this.tips;
-        for(int i=0;i<pairings.length;i++){
-            string=string+"~"+pairings[i];
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        JSONArray paired = new JSONArray();
+        for (int i=0; i<getPairings().length;i++){
+            paired.put(getPairings()[i]);
         }
-        return string;
+        json.put("name",getName());
+        json.put("abv",getAbv());
+        json.put("first_brewed",getFirstBrewed());
+        json.put("image_url", getImageURL());
+        json.put("description",getDesc());
+        json.put("brewers_tips",getTips());
+        json.put("food_pairing",paired);
+        return json;
     }
+
+    
 
     public String getAbv() {
         return abv;

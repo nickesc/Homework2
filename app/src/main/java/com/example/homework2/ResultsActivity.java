@@ -138,9 +138,11 @@ public class ResultsActivity extends AppCompatActivity {
     }
     public void launchNextActivity(View view) throws JSONException {
         Random rand = new Random();
-        String extra = list.get(rand.nextInt(list.size())).toString();
+        Beer extra = list.get(rand.nextInt(list.size()));
+        String jsonExtra = extra.toJSON().toString();
+
         Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra("beer",extra);
+        intent.putExtra("beer",jsonExtra);
 
         startActivity(intent);
     }
