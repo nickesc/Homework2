@@ -21,12 +21,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/courier_prime_regular"
+            android:maxLines="4"
             android:paddingBottom="20dp"
             android:text="@string/placeholder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nameRV" />
+            app:layout_constraintTop_toBottomOf="@id/nameRV"
+            android:ellipsize="end" />
 
         <TextView
             android:id="@+id/nameRV"
@@ -68,8 +70,8 @@
 
         <ImageView
             android:id="@+id/favoriteIV"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             app:layout_constraintBottom_toTopOf="@id/imageIV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

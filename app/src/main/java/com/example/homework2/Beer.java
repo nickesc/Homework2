@@ -12,6 +12,7 @@ public class Beer{
     private String desc;
     private String[] pairings;
     private String tips;
+    private Boolean fav;
 
     public Beer(JSONObject beerInfo) throws JSONException {
         this.name=beerInfo.getString("name");
@@ -45,7 +46,13 @@ public class Beer{
         return json;
     }
 
-    
+    public Boolean getFav() {
+        return fav;
+    }
+
+    public void setFav(Boolean fav) {
+        this.fav = fav;
+    }
 
     public String getAbv() {
         return abv;
